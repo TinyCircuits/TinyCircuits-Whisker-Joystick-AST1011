@@ -15,7 +15,7 @@
 #include <Wire.h>
 #include "TinyJoystick.h"
 
-#define JS_PORT 2
+#define JS_PORT 0
 
 TinyJoystick js = TinyJoystick();
 

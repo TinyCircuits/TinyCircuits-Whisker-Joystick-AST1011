@@ -23,9 +23,6 @@ You should also include the selectPort() function:
 
 In order to update readings from joystick, call getPosition()
 and then assess up, down, left, and right.
-
-I'm certain this library has much to be desired,
-but it provides basic functionality to the board.
 */
 
 #ifndef TINYJOYSTICK_h

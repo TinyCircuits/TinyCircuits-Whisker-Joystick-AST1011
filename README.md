@@ -1,8 +1,7 @@
 # TinyCircuits Whisker Joystick
 # AST1011 Rev2
 
-The design files are located under design_files/ for the TinyCircuits AST1011 Rev 2 PCB. This is a whisker board which features a 4-direction joystick. The on-board resistive network converts the High/Low output signals to discrete analog voltages so that all 4 signals can be read by a single Analog I/O pin.
-
+The design files are located under design_files/ for the TinyCircuits AST1011 Rev 2 PCB. This is a whisker board which lets you use a discrete joystick for inputs to your TinyDuino! This Up, Down, Left, Right joystick outputs data to an SX1505 I2C I/O expander. This data can then acquired by the main processor via I2C.
 Format is in Cadsoft Eagle format - Eagle version 6.2 was used for the original design.
 
 For more infomation on this, check out the product page at TinyCircuits.com

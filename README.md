@@ -1,7 +1,7 @@
-# TinyCircuits Whisker Joystick
+# TinyCircuits Wireling Joystick
 # AST1011 Rev2
 
-The design files are located under design_files/ for the TinyCircuits AST1011 Rev 2 PCB. This is a whisker board which lets you use a discrete joystick for inputs to your TinyDuino! This Up, Down, Left, Right joystick outputs data to an SX1505 I2C I/O expander. This data can then acquired by the main processor via I2C.
+The design files are located under design_files/ for the TinyCircuits AST1011 Rev 2 PCB. This is a Wireling board which lets you use a discrete joystick for four directional inputs to your TinyDuino! This Up, Down, Left, Right joystick outputs data to an SX1502 I2C I/O expander. This data can then acquired by the main processor via I2C.
 Format is in Cadsoft Eagle format - Eagle version 6.2 was used for the original design.
 
 For more infomation on this, check out the product page at TinyCircuits.com

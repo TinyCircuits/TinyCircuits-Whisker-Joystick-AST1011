@@ -43,7 +43,7 @@ uint8_t TinyJoystick::read(uint8_t regAddr) {
   value = (uint8_t)Wire.read();
 }
 
-// initialize SX1505 for use with SH7010
+// initialize SX1502 for use with SH7010
 int TinyJoystick::init(void) {
   write(SX1505_REGDIR, 0xFF);           // set I/O to all input
     delay(5);

@@ -3,8 +3,8 @@ SH7010 Arduino Library
 Written 07/10/2019
 By Hunter Hykes for TinyCircuits
 
-Written for use with the Joystick Whisker featuring the
-SX1505 I2C I/O Expander and the SKRHABE010 Digital Joystick
+Written for use with the Joystick Wireling featuring the
+SX1502 I2C I/O Expander and the SKRHABE010 Digital Joystick
 
 To use, declare a global instance of an SH7010 object,
 	TinyJoystick js = TinyJoystick();

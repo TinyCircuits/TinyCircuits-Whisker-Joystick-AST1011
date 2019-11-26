@@ -6,8 +6,8 @@
 
   Written 15 July 2019
   By Hunter Hykes
-  Modified N/A
-  By N/A
+  Modified 4 November 2019
+  By Laveréna Wienclaw
 
   https://TinyCircuits.com
 */
@@ -20,9 +20,9 @@
 TinyJoystick joystick = TinyJoystick();
 
 #if defined(ARDUINO_ARCH_AVR)
-#define SerialMonitorInterface Serial
+  #define SerialMonitorInterface Serial
 #elif defined(ARDUINO_ARCH_SAMD)
-#define SerialMonitorInterface SerialUSB
+  #define SerialMonitorInterface SerialUSB
 #endif
 
 uint8_t reading;
@@ -35,39 +35,41 @@ void setup() {
   digitalWrite(4, HIGH);
   
   while(!SerialMonitorInterface);
+
+  selectPort(JS_PORT);
   
   joystick.begin();
   joystick.init();
-
-  selectPort(JS_PORT);
 }
 
 void loop() {
-  joystick.getPosition();
+  setup();
+  joystick.readJoystick();
   printDir();
-  
   delay(5);
+}
+
+void printDir() {
+  if(joystick.up) {
+    SerialMonitorInterface.print("UP");
+    SerialMonitorInterface.println();
+  }
+  if(joystick.down) {
+    SerialMonitorInterface.print("DOWN");
+    SerialMonitorInterface.println();
+  }
+  if(joystick.left) {
+    SerialMonitorInterface.print("LEFT");
+    SerialMonitorInterface.println();
+  }
+  if(joystick.right) {
+    SerialMonitorInterface.print("RIGHT");
+    SerialMonitorInterface.println();
+  }  
 }
 
 void selectPort(int port) {
   Wire.beginTransmission(0x70);
   Wire.write(0x04 + port);
   Wire.endTransmission();
-}
-
-void printDir() {
-  if(joystick.up) {
-    SerialMonitorInterface.print("UP");
-  }
-  if(joystick.down) {
-    SerialMonitorInterface.print("DOWN");
-  }
-  if(joystick.left) {
-    SerialMonitorInterface.print("LEFT");
-  }
-  if(joystick.right) {
-    SerialMonitorInterface.print("RIGHT");
-  }
-
-  SerialMonitorInterface.println("");
 }

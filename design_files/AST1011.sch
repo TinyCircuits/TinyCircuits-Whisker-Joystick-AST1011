@@ -63,10 +63,12 @@
 <layer number="53" name="tGND_GNDA" color="7" fill="1" visible="yes" active="no"/>
 <layer number="54" name="bGND_GNDA" color="7" fill="1" visible="yes" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
-<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
-<layer number="58" name="bCAD" color="7" fill="1" visible="no" active="no"/>
-<layer number="59" name="Invisible" color="7" fill="1" visible="no" active="no"/>
-<layer number="61" name="stand" color="7" fill="1" visible="no" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="yes" active="no"/>
+<layer number="58" name="bCAD" color="7" fill="1" visible="yes" active="no"/>
+<layer number="59" name="Invisible" color="7" fill="1" visible="yes" active="no"/>
+<layer number="61" name="stand" color="7" fill="1" visible="yes" active="no"/>
+<layer number="88" name="SimResults" color="9" fill="1" visible="yes" active="yes"/>
+<layer number="89" name="SimProbes" color="9" fill="1" visible="yes" active="yes"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -137,6 +139,7 @@
 <layer number="157" name="tResistor" color="7" fill="1" visible="no" active="yes"/>
 <layer number="158" name="bResistor" color="7" fill="1" visible="no" active="yes"/>
 <layer number="159" name="henwayCAP" color="13" fill="1" visible="yes" active="yes"/>
+<layer number="160" name="IDFDebug" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="191" name="mNets" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="192" name="mBusses" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="193" name="mPins" color="7" fill="1" visible="yes" active="yes"/>
@@ -186,7 +189,7 @@
 <packages>
 <package name="JST_SH_5X1">
 <smd name="2" x="-1" y="2.475" dx="1.4" dy="0.6" layer="1" rot="R90"/>
-<smd name="PAD1" x="-3.3" y="-1.325" dx="1.6" dy="1.2" layer="1" rot="R90"/>
+<smd name="PAD1" x="-3.3" y="-1.325" dx="1.6" dy="1.2" layer="1" roundness="1" rot="R90"/>
 <smd name="PAD2" x="3.3" y="-1.325" dx="1.6" dy="1.2" layer="1" rot="R90"/>
 <smd name="3" x="0" y="2.475" dx="1.4" dy="0.6" layer="1" rot="R90"/>
 <wire x1="-3.5" y1="2.125" x2="3.5" y2="2.125" width="0.127" layer="51"/>
@@ -304,6 +307,20 @@
 <wire x1="0" y1="1.3" x2="-1.3" y2="0" width="0.127" layer="51"/>
 <circle x="0" y="0" radius="1.5" width="0.127" layer="51"/>
 <text x="0" y="0" size="2" layer="25" align="center">&gt;NAME</text>
+</package>
+<package name="JST_SH_5X1_EDGE">
+<smd name="2" x="-1" y="2.475" dx="1.4" dy="0.6" layer="1" rot="R90"/>
+<smd name="PAD1" x="-3.3" y="-1.225" dx="1.4" dy="0.8" layer="1" roundness="1" rot="R90"/>
+<smd name="PAD2" x="3.3" y="-1.225" dx="1.4" dy="0.8" layer="1" rot="R90"/>
+<smd name="3" x="0" y="2.475" dx="1.4" dy="0.6" layer="1" rot="R90"/>
+<wire x1="-3.5" y1="2.125" x2="3.5" y2="2.125" width="0.127" layer="51"/>
+<wire x1="3.5" y1="2.125" x2="3.5" y2="-2.125" width="0.127" layer="51"/>
+<wire x1="3.5" y1="-2.125" x2="-3.5" y2="-2.125" width="0.127" layer="51"/>
+<wire x1="-3.5" y1="-2.125" x2="-3.5" y2="2.125" width="0.127" layer="51"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<smd name="4" x="1" y="2.475" dx="1.4" dy="0.6" layer="1" rot="R90"/>
+<smd name="5" x="2" y="2.475" dx="1.4" dy="0.6" layer="1" rot="R90"/>
+<smd name="1" x="-2" y="2.475" dx="1.4" dy="0.6" layer="1" rot="R90"/>
 </package>
 </packages>
 <symbols>
@@ -10567,6 +10584,22 @@
 </technology>
 </technologies>
 </device>
+<device name="EDGE" package="JST_SH_5X1_EDGE">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+<connect gate="G$1" pin="5" pad="5"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PARTNO" value="AS-ITM-00340" constant="no"/>
+<attribute name="PNPROTATION" value="180" constant="no"/>
+<attribute name="VALUE" value="SM05B" constant="no"/>
+</technology>
+</technologies>
+</device>
 </devices>
 </deviceset>
 <deviceset name="AS-ITM-00305" prefix="J" uservalue="yes">
@@ -10688,6 +10721,26 @@
 </device>
 </devices>
 </deviceset>
+<deviceset name="AS-ITM-00105" prefix="C" uservalue="yes">
+<description>CAP CER 1UF 6.3V 10% X5R 0402</description>
+<gates>
+<gate name="G$1" symbol="C-US" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="C0402">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PARTNO" value="AS-ITM-00105" constant="no"/>
+<attribute name="VALUE" value="1uF" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
 <deviceset name="AS-ITM-00008" prefix="C" uservalue="yes">
 <description>CAP CER 0.1UF 16V 10% X5R 0402</description>
 <gates>
@@ -10725,7 +10778,7 @@
 </classes>
 <parts>
 <part name="FRAME1" library="tinycircuits" deviceset="FRAME_TINYCIRCUITS_B_L" device=""/>
-<part name="J1" library="tinycircuits" deviceset="AS-ITM-00340" device="" value="SM05B"/>
+<part name="J1" library="tinycircuits" deviceset="AS-ITM-00340" device="EDGE" value="SM05B"/>
 <part name="J2" library="tinycircuits" deviceset="AS-ITM-00305" device="A" value="SKRHABE010"/>
 <part name="GND5" library="tinycircuits" deviceset="GND" device=""/>
 <part name="U1" library="tinycircuits" deviceset="AS-ITM-00203" device="" value="SX1505I087TRT"/>
@@ -10734,7 +10787,10 @@
 <part name="GND1" library="tinycircuits" deviceset="GND" device=""/>
 <part name="R1" library="tinycircuits" deviceset="AS-ITM-00032" device="" value="10.0K"/>
 <part name="R2" library="tinycircuits" deviceset="AS-ITM-00003" device="" value="1.00K"/>
-<part name="C1" library="tinycircuits" deviceset="AS-ITM-00008" device="" value="0.1uF"/>
+<part name="C1" library="tinycircuits" deviceset="AS-ITM-00105" device="" value="1uF">
+<attribute name="PARTNO" value="AS-ITM-00105"/>
+<attribute name="VALUE" value="1uF"/>
+</part>
 <part name="GND2" library="tinycircuits" deviceset="GND" device=""/>
 <part name="P+4" library="tinycircuits" deviceset="VCC" device=""/>
 <part name="C2" library="tinycircuits" deviceset="AS-ITM-00008" device="" value="0.1uF"/>
@@ -10744,10 +10800,10 @@
 <sheets>
 <sheet>
 <plain>
-<text x="340.868" y="17.272" size="3.556" layer="94" font="vector">Joystick Board</text>
+<text x="340.868" y="17.272" size="3.556" layer="94" font="vector">Wireling Joystick</text>
 <text x="327.152" y="6.35" size="3.556" layer="94" font="vector">AS-SCH-AST1011</text>
 <text x="416.56" y="6.858" size="3.556" layer="94" font="vector">2</text>
-<text x="182.88" y="187.96" size="5.08" layer="94" font="vector">Joystick Board</text>
+<text x="129.54" y="177.8" size="5.08" layer="94" font="vector">Joystick And I2C IO Expander</text>
 <text x="45.72" y="35.56" size="3.048" layer="91">Released under the Creative Commons Attribution Share-Alike 3.0 License</text>
 <text x="45.72" y="30.48" size="3.048" layer="91">http://creativecommons.org/licenses/by-sa/3.0</text>
 <text x="45.72" y="20.32" size="3.048" layer="91">Original Arduino Uno Design by Team Arduino</text>
@@ -10756,7 +10812,7 @@
 <text x="50.8" y="53.34" size="1.778" layer="96">Non Populated: -</text>
 <text x="50.8" y="50.8" size="1.778" layer="96">Hand Populated: -</text>
 <text x="50.8" y="48.26" size="1.778" layer="96">Hand Soldered: -</text>
-<text x="50.8" y="55.88" size="1.778" layer="96">Variant: Standard</text>
+<text x="50.8" y="55.88" size="1.778" layer="96">Variant: Standard - R</text>
 <text x="50.8" y="45.72" size="1.778" layer="96">Notes: -</text>
 </plain>
 <instances>
